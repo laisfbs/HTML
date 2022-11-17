@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+    <head>
+
+        <title> Signos </title>
+        <meta charset="UTF-8">
+
+    </head>
+
+    <body bgcolor="#ADD8E6">
+
+    <div>
+
+    <h1><n><center>Qual é o seu signo?</center></n></h1>
+    <p1><h3><center>Insira sua data de nascimento:</center></h3></p1>
+    
+    <script>
+
+        if (window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+         } else {
+            xmlhttp = new ActiveXObject("Signos.xml");
+         }
+    
+    xmlhttp.open("GET", "Signos.xml", false);
+    xmlhttp.send();
+    
+    document.write("<table border='1'>");
+    
+        let x = xmlDoc.getElementsByTagName("signos");
+    
+        for (let i = 0; i < x.length; i++){
+        document.write("<tr><td>");
+        document.write("dataInicio: " + x[i].getElementsByTagName("dataInicio")[0].childNodes[0].nodeValue);
+        document.write("</br>")
+        document.write("dataFim: " + x[i].getElementsByTagName("dataFim")[0].childNodes[0].nodeValue);
+        document.write("</br>")
+        document.write("signoNome: " + x[i].getElementsByTagName("signoNome")[0].childNodes[0].nodeValue);
+        document.write("</br>")
+        document.write("descricao: " + x[i].getElementsByTagName("descricao")[0].childNodes[0].nodeValue);
+        document.write("</td></tr>");
+        
+    document.write("</table>");
+    
+    </script>
+
+    </div>
+
+<form method="post" action="Signos.xml">
+
+<fieldset>
+
+    <table  widht=200 height=50>
+
+        <td>
+        <label for="DataNascimento">Data:</label>
+        <input type="date" id="diaa" name="diaa" required>
+        <br><br>
+
+</fieldset>
+<br>
+<button>Clique aqui</button>
+
+</form>
+
+</body>
+
+</html>
